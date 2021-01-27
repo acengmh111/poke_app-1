@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import styled from '@emotion/styled';
 import {PokemonContext} from '../../../../App';
+import Error from '../../../master/Error';
 
 const Wrapper = styled.div`
     display: flex;
@@ -29,6 +30,11 @@ function Page(props) {
     return (
         <Wrapper>
             {
+
+                context.error_lists ?
+                <Error />
+
+                :
                 context.loading_lists ? 
                     <Button disabled={true} style={{backgroundColor: 'var(--blur-color)'}}>
                     Prev
@@ -44,6 +50,10 @@ function Page(props) {
                         </Button>
             }
             {
+                context.error_lists ?
+                <Error />
+
+                :
                 context.loading_lists ? 
                     <Button disabled={true} style={{backgroundColor: 'var(--blur-color)'}}>
                     Next

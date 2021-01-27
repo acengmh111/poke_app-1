@@ -5,6 +5,7 @@ import Image from './Image';
 import Catch from './Catch';
 import Basics from './Basics';
 import Loader from '../../master/Loader';
+import Error from '../../master/Error';
 import State from './State';
 import Abilities from './Abilities';
 import Moves from './Moves';
@@ -22,6 +23,10 @@ function Body({params}) {
     return (
         <Wrapper>
             {
+                context.error_lists ?
+                <Error />
+
+                :
                 context.loading_detail ? <Loader/>
                 :
                 <React.Fragment>

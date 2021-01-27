@@ -5,6 +5,7 @@ import Page from './page/Page';
 import {PokemonContext} from '../../../App';
 import Loader from '../../master/Loader';
 import { Link } from 'react-router-dom';
+import Error from '../../master/Error';
 
 
 const Wrapper = styled.div`
@@ -20,6 +21,8 @@ const CardWrapper = styled.div`
 
 function Body(props) {
     const context = useContext(PokemonContext);
+
+    console.log(context);
     
     const getOwned = (name, p_owned) => {
         var owned = 0
@@ -35,17 +38,21 @@ function Body(props) {
         <Wrapper>
             <CardWrapper>
                 {
-                    context.loading_lists ? 
-                    <Loader />
-                    :
-                    context.data_lists.pokemons.results.map(pokemon => 
+                    context.error_lists ?
+                        <Error />
                         
-                        (
-                            <Link key={pokemon.name} to={`/${pokemon.name}`} style={{width: '47%'}}>
-                                <Card key={pokemon.name} name={pokemon.name} image={pokemon.image} owned={getOwned(pokemon.name, context.pokemon_owned)}/>
-                            </Link>
+                    :
+                        context.loading_lists ? 
+                        <Loader />
+                        :
+                        context.data_lists.pokemons.results.map(pokemon => 
+                            
+                            (
+                                <Link key={pokemon.name} to={`/${pokemon.name}`} style={{width: '47%'}}>
+                                    <Card key={pokemon.name} name={pokemon.name} image={pokemon.image} owned={getOwned(pokemon.name, context.pokemon_owned)}/>
+                                </Link>
+                            )
                         )
-                    )
                 }
             </CardWrapper>  
             <Page />

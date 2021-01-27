@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
-import {PokemonContext} from '../../App';
 import Header from './header/Header';
 import Body from './body/Body';
 

@@ -198,7 +198,6 @@ function App() {
     <PokemonContext.Provider value={ValueProvider}>
       <Router>
         <Container ref={container_ref}>
-          {/* <button onClick={() => localStorage.clear()}>clear</button> */}
           <Switch>
             <Route path='/' exact  component={Home}/>
             <Route path='/my'  component={My}/>
