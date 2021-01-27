@@ -23,13 +23,12 @@ import My from './components/mypoke';
 
 //styled_container
 const Container = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background: var(--main-bg);
   margin: 0 auto;
   max-width: 500px;
-  overflow-y: auto;
   position: relative !important;
-    overflow-x: hidden;
+  overflow-x: hidden;
 `
 
 
