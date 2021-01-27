@@ -12,7 +12,7 @@ export const reducer = (state, action) => {
                 for(let i = 0; i < state.length; i++){
                     if(state[i].name === action.payload.name){
                         state[i].name = action.payload.name
-                        state[i].owned+=parseFloat(0.5)
+                        state[i].owned+=1
                         return [...state]
                         
                     }else{
@@ -38,7 +38,7 @@ export const reducer = (state, action) => {
         case TYPE.RELEASE_OWN: {
             for(let i = 0; i < state.length; i++){
                 if(state[i].name === action.payload.name){
-                    state[i].owned-=parseFloat(0.5)
+                    state[i].owned-=1
                     if(state[i].owned === 0){
                         state.splice(i, 1)
                     }

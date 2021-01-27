@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import swal from 'sweetalert';
 import { useQuery } from '@apollo/client';
 import {GET_POKEMONS, GET_POKEMON_DETAIL} from './query';
+// import {HashRouter as Router, Switch, Route} from 'react-router-dom';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {TYPE} from './reducer/type';
 import {reducer} from './reducer';
@@ -90,7 +91,7 @@ function App() {
     .then((willCatch) => {
       
       if (willCatch) {
-        if(Math.random() < 1){
+        if(Math.random() < 0.5){
           swal({
             text: `Yay, You got ${data.name}. Give This Pokemon a Nickname`,
             icon: 'success',
